@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var platform_browser_1 = require("@angular/platform-browser");
+exports.BrowserModule = platform_browser_1.BrowserModule;
+var core_1 = require("@angular/core");
+exports.NgModule = core_1.NgModule;
+var router_1 = require("@angular/router");
+exports.RouterModule = router_1.RouterModule;
+exports.ROUTES = router_1.ROUTES;
+var http_1 = require("@angular/common/http");
+exports.HttpClientModule = http_1.HttpClientModule;
+var forms_1 = require("@angular/forms");
+exports.ReactiveFormsModule = forms_1.ReactiveFormsModule;
+exports.FormsModule = forms_1.FormsModule;
+var animations_1 = require("@angular/platform-browser/animations");
+exports.BrowserAnimationsModule = animations_1.BrowserAnimationsModule;
+var ngx_toastr_1 = require("ngx-toastr");
+exports.ToastrModule = ngx_toastr_1.ToastrModule;
+var angular2_multiselect_dropdown_1 = require("angular2-multiselect-dropdown/angular2-multiselect-dropdown");
+exports.AngularMultiSelectModule = angular2_multiselect_dropdown_1.AngularMultiSelectModule;
+//# sourceMappingURL=index.js.map

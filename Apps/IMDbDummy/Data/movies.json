@@ -1,0 +1,20 @@
+[
+  {
+    "Id": "0",
+    "Name": "Deadpool 2",
+
+    "YearOfRelease": "2018",
+    "PosterUrl": "/images/movies/deadpool2.jpg"
+
+
+  },
+  {
+    "Id": "0",
+    "Name": "The Matrix",
+    "YearOfRelease": "1999",
+    "PosterUrl": "/images/movies/thematrix.jpg"
+
+  }
+]
+
+ 

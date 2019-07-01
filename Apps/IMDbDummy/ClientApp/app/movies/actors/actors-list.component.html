@@ -1,0 +1,17 @@
+<div class="row" *ngFor="let actor of filteredActors">
+
+    <div class="col-md-10">
+        <collapsible-well>
+            <div well-title>
+                {{actor?.firstName+' '+ actor?.lastName}}<div style="float: right" (click)="deleteActor(actor)"><i class="fa fa-trash"></i></div>
+            </div>
+            <div well-body>
+                <h6>{{act?.bio}}</h6>
+                <span>DOB: {{actor?.dob | date: 'shortDate'}}</span>
+                <br />
+                <span>Sex: {{actor?.sex}}</span>
+
+            </div>
+        </collapsible-well>
+    </div>
+</div>

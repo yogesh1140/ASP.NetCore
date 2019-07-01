@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <StartupObject></StartupObject>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Shared\_Layout.cshtml" />
+    <Content Remove="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="wwwroot\lib\font-awesome\.gitignore" />
+    <None Include="wwwroot\lib\font-awesome\.npmignore" />
+    <None Include="wwwroot\lib\font-awesome\css\font-awesome.css.map" />
+    <None Include="wwwroot\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\lib\font-awesome\less\animated.less" />
+    <None Include="wwwroot\lib\font-awesome\less\bordered-pulled.less" />
+    <None Include="wwwroot\lib\font-awesome\less\core.less" />
+    <None Include="wwwroot\lib\font-awesome\less\fixed-width.less" />
+    <None Include="wwwroot\lib\font-awesome\less\font-awesome.less" />
+    <None Include="wwwroot\lib\font-awesome\less\icons.less" />
+    <None Include="wwwroot\lib\font-awesome\less\larger.less" />
+    <None Include="wwwroot\lib\font-awesome\less\list.less" />
+    <None Include="wwwroot\lib\font-awesome\less\mixins.less" />
+    <None Include="wwwroot\lib\font-awesome\less\path.less" />
+    <None Include="wwwroot\lib\font-awesome\less\rotated-flipped.less" />
+    <None Include="wwwroot\lib\font-awesome\less\screen-reader.less" />
+    <None Include="wwwroot\lib\font-awesome\less\stacked.less" />
+    <None Include="wwwroot\lib\font-awesome\less\variables.less" />
+    <None Include="wwwroot\lib\font-awesome\scss\font-awesome.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_animated.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_bordered-pulled.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_core.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_fixed-width.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_icons.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_larger.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_list.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_mixins.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_path.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_rotated-flipped.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_screen-reader.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_stacked.scss" />
+    <None Include="wwwroot\lib\font-awesome\scss\_variables.scss" />
+  </ItemGroup>
+  <Target Name="MyPublishScript" BeforeTargets="BeforePublish">
+    <Exec Command="npm install" />
+    <Exec Command="bower install" />
+    <Exec Command="gulp" /> 
+    <Exec Command="ng build" />    
+  
+  </Target>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES2015</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+</Project>

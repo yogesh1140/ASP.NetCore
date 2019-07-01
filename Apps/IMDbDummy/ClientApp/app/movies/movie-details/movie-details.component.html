@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row"  *ngIf="!updateMovieMode">
+
+    <div class="col-md-2">
+      <img [src]="movie?.posterUrl" [alt]="movie?.s" class="movie-image" class="img-responsive" style="float: left;max-width:250px;">
+    </div>
+    <div class="col-md-6 col-sm-offset-1">
+      <div class="row">
+        <h2>{{movie?.name | uppercase}} </h2>
+      </div>
+
+      <div class="row">
+        <strong>Plot: </strong>
+        <br/>
+        <span>{{movie?.plot}}</span>
+      </div>
+      <br/>
+      <div class="row">
+        <strong>Year Of Release: </strong>
+        <br/>
+        <span>{{movie?.yearOfRelease}}</span>
+      </div>
+      <br/>
+
+      <div class="row">
+        <strong>Producer: </strong>
+        <br/>
+        <span>{{movie?.producer.firstName +' '+ movie?.producer.lastName }}</span>
+      </div>
+    </div>
+<div class="col-sm-1"><span style="font-size: 18px;cursor: pointer"  (click)="updateMovieMode=true"><i class="fa fa-pencil"></i>Edit</span> </div>
+<div class="col-sm-2"><span style="font-size: 18px;cursor: pointer" (click)="deleteMovie()"><i class="fa fa-trash"></i>Delete</span></div>
+
+  </div>
+
+<div class="row" *ngIf="updateMovieMode"> 
+  <app-updatemovie [movie] ="movie" (cancelUpdateMovie)="cancelUpdateMovie()" (updateMovie)="updateMovie($event)"></app-updatemovie>
+</div>
+
+  <div class="row">
+
+    <hr/>
+
+
+
+    <div class="row" style="margin-bottom:10px">
+      <div class="col-md-2">
+        <h3 *ngIf="!addMode" style="margin:0">Actors</h3>
+      </div>
+      <!-- <div class="col-md-7">
+            <div class="btn-group btn-group-sm" style="margin-right:20px;margin-left:20px">
+              <button class="btn btn-default" [class.active]="sortBy==='name'" (click)="sortBy='name'">By Name</button>
+              <button class="btn btn-default" [class.active]="sortBy==='votes'" (click)="sortBy='votes'">By Votes</button>
+            </div>
+          -->
+          <div>
+            <div class="btn-group btn-group-sm">
+              <button class="btn btn-default" [class.active]="filterBy==='All'" (click)="filterBy='All'">All</button>
+              <button class="btn btn-default" [class.active]="filterBy==='Actress'" (click)="filterBy='Actress'">Actor(Female)</button>
+              <button class="btn btn-default" [class.active]="filterBy==='Actor'" (click)="filterBy='Actor'">Actor(Male)</button>
+            </div>
+          </div> 
+      <div *ngIf="!addMode" class="col-md-2 col-md-offset-10" style="cursor: pointer;">
+        <a (click)="addActor()" style="font-size: 18px;text-decoration: none;">Add Actor</a>
+      </div>
+    </div>
+    <app-addactor *ngIf="addMode" [existingActors]="actorList" [movieId]="movie?.id" (addActor)="addActorToMovie($event)" (cancelAddActor)="cancelAddActor($event)"></app-addactor>
+    <app-actorslist *ngIf="!addMode" [actors]="actorList" [filterBy]="filterBy" (deleteActorFromMovie)="deleteActorFromMovie($event)"></app-actorslist>
+    <!-- <session-list [eventId]="event?.id" [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></session-list> -->
+    <!-- <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></create-session> -->
+  </div>
+</div>

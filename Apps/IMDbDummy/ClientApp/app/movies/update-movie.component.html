@@ -1,0 +1,82 @@
+<div class="col-md-12">
+    <h3>Update Movie</h3>
+</div>
+
+<div class="col-md-6">
+    <form autocomplete="off" [formGroup]="updateMovieForm" (ngSubmit)="updateMovieDetails(updateMovieForm.value)">
+        <div class="form-group" [ngClass]="{ 'error' : name.invalid && name.dirty }">
+            <label for="name">Name:</label>
+            <em *ngIf="name.invalid && name.dirty && name.errors?.required">Required</em>
+
+
+            <input formControlName="name" id="name" type="text" class="form-control" placeholder="movie name..." />
+        </div>
+        <div class="form-group" [ngClass]="{ 'error' : yearOfRelease.invalid && yearOfRelease.dirty }">
+            <label for="yearOfRelease">Year of Release:</label>
+            <em *ngIf="yearOfRelease.invalid && yearOfRelease.dirty && yearOfRelease.errors?.required">Required</em>
+            <em *ngIf="yearOfRelease.invalid && yearOfRelease.dirty && yearOfRelease.errors?.pattern">Must contain 4 digits</em>
+
+
+            <input formControlName="yearOfRelease" id="yearOfRelease" type="text" class="form-control" placeholder="year of release..."
+            />
+        </div>
+        <div class="form-group" [ngClass]="{ 'error' : plot.invalid && plot.dirty }">
+            <label for="plot">Plot:</label>
+            <em *ngIf="plot.invalid && plot.dirty && plot.errors?.required">Required</em>
+            <em *ngIf="plot.invalid && plot.dirty && plot.errors?.minlength">Min lnegt: 20</em>
+            <em *ngIf="plot.invalid && plot.dirty && plot.errors?.maxlength">Max length: 500</em>
+
+            <textarea type="plot" formControlName="plot" class="form-control">
+
+            </textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group" [ngClass]="{ 'error' : producer.invalid && producer.dirty}">
+                    <label for="producer">Producer:</label>
+                    <em *ngIf="producer.invalid && producer.dirty">Required</em>
+
+                    <select formControlName="producer" class="form-control">
+
+                        <option *ngFor="let producer of producersList" [value]="producer?.id">{{producer?.firstName+' '+producer.lastName}}</option>
+
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-2" style="padding-top:25px;cursor: pointer;" (click)="addProducerMode =true">
+                <a style=" text-decoration: none">Add
+                    <i class="fa fa-chevron-down "></i>
+                </a>
+
+            </div>
+
+        </div>
+        <div *ngIf="addProducerMode" class="panel panel-default">
+            <app-addnewproducer class="panel-header" (newProducerAdded)=saveNewProducer($event) (cancelNewProducer)="cancelNewProducer()"></app-addnewproducer>
+        </div>
+        
+
+        <div class="row">
+            <div  class="col-md-12">
+            <div class="form-group" [ngClass]="{ 'error' : posterUrl.invalid && posterUrl.dirty}">
+                <label for="posterUrl">Poster: :</label>
+                <em *ngIf="posterUrl.invalid && posterUrl.dirty">Required</em>
+                <input #file formControlName="posterUrl" id="posterUrl" type="file" accept=".jpg,.png,.bmp,.tiff" (change)="uploadFiles(file.files)"
+                    class="btn btn-default" placeholder="year of release..." />
+
+
+            </div>
+            <img [src]="imgSrc" alt="" class="img-responsive" style="max-width: 150px;min-width: 150px;min-height: 150px;max-height: 150px; border: 1px solid grey"
+            />
+        </div>
+        </div>
+
+        <div style="padding: 10px;">
+        <button type="submit" [disabled]="updateMovieForm.invalid && imgSrc!=null  && !addProducerMode" class="btn btn-success"
+            [disabled]="updateMovieForm.invalid">Save Changes</button>
+        &nbsp;
+        <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+    </div>
+    </form>
+</div>

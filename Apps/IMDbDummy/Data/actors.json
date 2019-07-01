@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "0",
+    "Name": "Emilia Clarke",
+    "DOB": "10/23/1986",
+    "Bio": "British actress Emilia Clarke was born in London and grew up in Berkshire, England. Her father is a theatre sound engineer and her mother is a businesswoman. Her father was working on a theatre production of \"Show Boat\" and her mother took her along to the performance. "
+  },
+  {
+    "Id": "1",
+    "Name": "Alexandra Daddario",
+    "DOB": "03/16/1986",
+    "Bio": "Alexandra Anna Daddario was born on March 16, 1986 in New York City, New York, to Christina, a lawyer, and Richard Daddario, a prosecutor. Her brother is actor Matthew Daddario, and her grandfather was congressman Emilio Daddario (Emilio Q. Daddario), of Connecticut. She has Italian, Irish, Hungarian/Slovak, German, and English ancestry"
+
+  },
+
+  {
+    "Id": "2",
+    "Name": "Ryan Reynolds",
+    "DOB": "10/23/1976",
+    "Bio": "Ryan Rodney Reynolds was born on October 23, 1976 in Vancouver, British Columbia, Canada, the youngest of four children. His father, James Chester Reynolds, was a food wholesaler, and his mother, Tammy, worked as a retail-store saleswoman."
+
+  },
+  {
+    "Id": "3",
+    "Name": "Jennifer Lawrence",
+    "DOB": "08/15/1990",
+    "Bio": "Was the highest-paid actress in the world in 2015 and 2016. With her films grossing over $5.5 billion worldwide, Jennifer Lawrence is often cited as the most successful actor of her generation. She is also thus far the only person born in the 1990s to have won an acting Oscar. "
+
+  },
+  {
+    "Id": "4",
+    "Name": "Chris Pratt",
+    "DOB": "06/21/1979",
+    "Bio": "Christopher Michael Pratt is an American film and television actor. He came to prominence from his television roles, including Bright Abbott in Everwood (2002), Ché in The O.C. (2003), and Andy Dwyer and Parks and Recreation (2009), and notable film roles in Moneyball (2011), The Five-Year Engagement (2012), Zero Dark Thirty (2012), etc"
+
+  },
+  {
+    "Id": "",
+    "Name": "Keanu Reeves",
+    "DOB": "11/02/1964",
+    "Bio": "Keanu Charles Reeves, whose first name means \"cool breeze over the mountains\" in Hawaiian, was born September 2, 1964 in Beirut, Lebanon. He is the son of Patricia Taylor, a showgirl and costume designer, and Samuel Nowlin Reeves, a geologist. Keanu's father was born in Hawaii, of British, Portuguese, Native Hawaiian, and Chinese ancestry\""
+
+  }
+]

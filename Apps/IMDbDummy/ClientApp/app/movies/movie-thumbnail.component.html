@@ -1,0 +1,36 @@
+<div  class="well hoverwell thumbnail"  [routerLink]="['/movies', movie.id]" >
+        <div style="display: inline-block" style ="min-height: 225px;">
+            <img class="img img-responsive" style="max-width: 150px; float: left; padding-right: 10px " src="{{movie?.posterUrl}}" alt="{{movie?.name}}"/>
+        
+            <h2>{{movie?.name | uppercase}}</h2>
+            <div class="plot">
+                   <span class="plot-head"> Plot:</span> {{movie?.plot}}
+        
+            </div>
+            <br/>
+            <div >
+                    <span class="plot-head">Year Of Release: </span>{{movie?.yearOfRelease}}
+        
+            </div>
+            <br/>
+
+            <div >
+                    <span class="plot-head">Producer: </span>{{movie?.producer?.firstName +' '+ movie?.producer?.lastName }}
+            </div>
+        </div>
+
+<!-- 
+        <label *ngIf="!isEdit" (click)="isEdit=true" from="name">Name</label>
+    <input *ngIf="isEdit" (keydown.enter)="isEdit=false" 
+        [ngFormControl]="myForm.controls['name'] "type="text" 
+        id="name" #name="ngForm" [(ngModel)]="movie"> -->
+    
+    
+    <!-- <div [hidden]="!event?.location">
+      <span>Location: {{movie?.location?.address}}</span>
+      <span class="pad-left">{{movie?.location?.city}}, {{movie?.location?.country}}</span>
+    </div>
+    <div [hidden]="!event?.onlineUrl">
+      Online Url: {{movie?.onlineUrl}}
+    </div> -->
+  </div>

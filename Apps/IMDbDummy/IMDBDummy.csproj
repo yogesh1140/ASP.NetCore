@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptToolsVersion>3.4</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  
+  <Target Name="MyPublishScript" BeforeTargets="BeforePublish">
+    <Exec Command="npm install" />
+    <Exec Command="bower install" />
+    <Exec Command="ng build" />    
+  
+  </Target>
+
+  <ItemGroup>
+    <Compile Remove="ClientApp\.git\**" />
+    <Content Remove="ClientApp\.git\**" />
+    <EmbeddedResource Remove="ClientApp\.git\**" />
+    <None Remove="ClientApp\.git\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\lib\twitter-bootstrap\js\bootstrap.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="ClientApp\tsconfig.app.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="ClientApp\tsconfig.spec.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="ClientApp\tslint.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\App\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+
+.pad-left { margin-left: 10px; }
+.thumbnail { 
+    min-height: 175px;
+}
+.thumbnail{
+    color: darkgrey;
+
+}
+.thumbnail h2 {
+    color: black;
+}
+.plot-head{
+    font-weight: bold;
+    color: darkslategray;
+}
+/* .well div { color: #bbb; } */
+
+div.plot{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px;     
+    max-height: 32px;      
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}

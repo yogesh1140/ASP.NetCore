@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Quicksand', 'Inconsolata', 'Droid Sans', serif; 
+    background-color: #bbb;
+}
+.main footer{
+    background-color: #bbb;
+}

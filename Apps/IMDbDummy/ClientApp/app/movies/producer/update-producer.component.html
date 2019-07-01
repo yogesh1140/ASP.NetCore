@@ -1,0 +1,25 @@
+<h3   style="margin:0">Add Actor To Movie</h3>
+
+<em class="text-warning" style="background-color:red" *ngIf="errorMessage">{{errorMessage}}</em>
+<div *ngIf="!addActorMode" class="col-md-offset-10 col-md-2">
+        <a (click)="AddNewActor()" style="font-size: 18px;text-decoration: none;">Add New Actor</a>
+    </div>
+<div class="col-md-5" *ngIf="!addActorMode">
+    <form #producerForm="ngForm" (ngSubmit)="updateProducer(producerForm.controls.selectedActor?.value)">
+        <div class="form-group">
+            <label for="actors">Choose from Producers</label>
+            <em *ngIf="producerForm.controls.selectedProducer?.invalid && producerForm.controls.selectedProducer?.dirty">Please Select Actor to add</em>
+            <select name="selectedProducer" id="selectedProducer" class="form-control" (ngModel)="selectedProducer" required>
+
+                <option *ngFor="let actor of actors" value="{{actor?.id}}">{{actor?.firstName+ ' '+actor.lastName}}</option>
+            </select>
+        </div>
+        <div class="form-group"  >
+            <input type="submit" [disabled]="producerForm.invalid" class="btn btn-success" value="Add to Movie" />&nbsp;
+            <input type="button" (click)="cancel()" class="btn btn-default" value="Cancel" />
+        </div>
+    </form>
+</div>
+<app-addnewproducer *ngIf="addProducerMode" (newProducerAdded)=saveNewProducer($event) (cancelNewProducer)="cancelNewProducer()"></app-addnewproducer>
+
+

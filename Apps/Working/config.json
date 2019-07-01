@@ -1,0 +1,17 @@
+{
+  "MailSettings": {
+    "ToAddress": "jadhavyogesh222@gmail.com"
+  },
+  "ConnectionStrings": {
+    "WorkingContextConnection": "Server=DESKTOP-NASS03S;User ID=sa;password=sql@2017;Database=working;MultipleActiveResultSets=true;"
+  },
+  "Keys": {
+    "BingKey": "AiWnwxYSNQgPgKaNJZJBcZ5oWSWs-FNz33FPCzxMD6R0ktgDBoNejfgvHBn9C-Ht"
+  },
+  "JWT": {
+      "JwtKey": "SOME_RANDOM_KEY_DO_NOT_SHARE",
+      "JwtIssuer": "http://localhost:5000",
+      "JwtExpireDays": 30
+    }
+  
+}

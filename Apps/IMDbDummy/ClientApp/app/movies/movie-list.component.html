@@ -1,0 +1,8 @@
+<div>
+        <h1>Movie Database</h1>
+        <hr/>
+        <div class="row" style="justify-content: center">
+          <div *ngFor="let movie of movieList" class="col-md-4" >
+            <app-moviethumbnail [movie]="movie"></app-moviethumbnail>
+          </div>
+        </div>

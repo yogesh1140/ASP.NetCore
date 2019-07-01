@@ -1,0 +1,25 @@
+<h3   style="margin:0">Add Actor To Movie</h3>
+
+<em class="text-warning" style="background-color:red" *ngIf="errorMessage">{{errorMessage}}</em>
+<div *ngIf="!addActorMode" class="col-md-offset-10 col-md-2">
+        <a (click)="AddNewActor()" style="font-size: 18px;text-decoration: none;">Add New Actor</a>
+    </div>
+<div class="col-md-5" *ngIf="!addActorMode">
+    <form #actorForm="ngForm" (ngSubmit)="addActorToMovie(actorForm.controls.selectedActor?.value)">
+        <div class="form-group">
+            <label for="actors">Choose from Actors</label>
+            <em *ngIf="actorForm.controls.selectedActor?.invalid && actorForm.controls.selectedActor?.dirty">Please Select Actor to add</em>
+            <select name="selectedActor" id="selectedActor" class="form-control" (ngModel)="selectedActor" required>
+
+                <option *ngFor="let actor of actors" value="{{actor?.id}}">{{actor?.firstName+ ' '+actor.lastName}}</option>
+            </select>
+        </div>
+        <div class="form-group"  >
+            <input type="submit" [disabled]="actorForm.invalid" class="btn btn-success" value="Add to Movie" />&nbsp;
+            <input type="button" (click)="cancel()" class="btn btn-default" value="Cancel" />
+        </div>
+    </form>
+</div>
+<app-addnewactor *ngIf="addActorMode" (newActorAdded)=saveNewActor($event) (cancelNewActor)="cancelNewActor()"></app-addnewactor>
+
+
