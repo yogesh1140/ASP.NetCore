@@ -1,36 +1,56 @@
 using CourseManager.API.DbContexts;
 using CourseManager.API.Entities;
 using CourseManager.API.Services;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace CourseManager.API.Test
 {
     public class AuthorRepositoryTests
     {
+        public ITestOutputHelper _output { get; set; }
+        public AuthorRepositoryTests(ITestOutputHelper output)
+        {
+            _output = output;
+
+        }
+
         [Fact]
         public void GetAuthors_PageSizeIsThree_ReturnsThreeAuthors()
         {
             // Arrange
+            //var options = new DbContextOptionsBuilder<CourseContext>()
+            //    .UseInMemoryDatabase($"CourseDatabaseForTesting{Guid.NewGuid()}")
+            //    .Options;
+
+
+            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = ":memory:" };
+            var connection = new SqliteConnection(connectionStringBuilder.ToString());
             var options = new DbContextOptionsBuilder<CourseContext>()
-                .UseInMemoryDatabase($"CourseDatabaseForTesting{Guid.NewGuid()}")
+                .UseSqlite(connection)
                 .Options;
 
             using (var context = new CourseContext(options))
             {
-                //context.Countries.Add(new Entities.Country()
-                //{
-                //    Id = "BE",
-                //    Description = "Belgium"
-                //});
+                context.Database.OpenConnection();
+                context.Database.EnsureCreated();
+                context.Countries.Add(new Entities.Country()
+                {
+                    Id = "BE",
+                    Description = "Belgium"
+                });
 
-                //context.Countries.Add(new Entities.Country()
-                //{
-                //    Id = "US",
-                //    Description = "United States of America"
-                //});
+                context.Countries.Add(new Entities.Country()
+                {
+                    Id = "US",
+                    Description = "United States of America"
+                });
 
                 context.Authors.Add(new Entities.Author()
                 { FirstName = "Kevin", LastName = "Dockx", CountryId = "BE" });
@@ -48,26 +68,32 @@ namespace CourseManager.API.Test
 
             using (var context = new CourseContext(options))
             {
+
                 var authorRepository = new AuthorRepository(context);
 
                 // Act
                 var authors = authorRepository.GetAuthors(1, 3);
-                
+
                 // Assert
                 Assert.Equal(3, authors.Count());
             }
         }
 
+
         [Fact]
         public void GetAuthor_EmptyGuid_ThrowsArgumentException()
         {
             // Arrange
+            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = ":memory:" };
+            var connection = new SqliteConnection(connectionStringBuilder.ToString());
             var options = new DbContextOptionsBuilder<CourseContext>()
-                .UseInMemoryDatabase($"CourseDatabaseForTesting{Guid.NewGuid()}")
+                .UseSqlite(connection)
                 .Options;
 
             using (var context = new CourseContext(options))
             {
+                context.Database.OpenConnection();
+                context.Database.EnsureCreated();
                 var authorRepository = new AuthorRepository(context);
 
                 // Assert
@@ -81,12 +107,25 @@ namespace CourseManager.API.Test
         public void AddAuthor_AuthorWithoutCountryId_AuthorHasBEAsCountryId()
         {
             // Arrange
+
+            // var logs = new List<string>();
+
+            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = ":memory:" };
+            var connection = new SqliteConnection(connectionStringBuilder.ToString());
             var options = new DbContextOptionsBuilder<CourseContext>()
-                .UseInMemoryDatabase($"CourseDatabaseForTesting{Guid.NewGuid()}")
+                .UseLoggerFactory(new LoggerFactory(new[] {
+                    new LogToActionLoggerProvider((log)=> {
+                        //todo
+                        _output.WriteLine(log);
+                    })
+                }))
+                .UseSqlite(connection)
                 .Options;
 
             using (var context = new CourseContext(options))
             {
+                context.Database.OpenConnection();
+                context.Database.EnsureCreated();
                 context.Countries.Add(new Entities.Country()
                 {
                     Id = "BE",
@@ -113,6 +152,7 @@ namespace CourseManager.API.Test
 
             using (var context = new CourseContext(options))
             {
+
                 // Assert
                 var authorRepository = new AuthorRepository(context);
                 var addedAuthor = authorRepository.GetAuthor(

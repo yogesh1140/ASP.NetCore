@@ -28,7 +28,8 @@ namespace CourseManager.API
             services.AddDbContext<CourseContext>(options =>
             {
                 //options.UseInMemoryDatabase("CourseManagerInMemoryDB");
-                options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=CourseManagerDB;Trusted_Connection=True;");
+                 
+                options.UseSqlServer("Data Source=DESKTOP-NASS03S;Integrated Security =True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Initial Catalog=CourseManagerDB");
             });
         }
 

@@ -34,12 +34,11 @@ var LoginComponent = /** @class */ (function () {
             }
         }, function (err) { return _this.errMessage = 'Failed to LogIn'; });
     };
-    var _a;
     LoginComponent = __decorate([
         core_1.Component({
             templateUrl: 'login.component.html'
         }),
-        __metadata("design:paramtypes", [data_service_1.DataService, typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [data_service_1.DataService, router_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());

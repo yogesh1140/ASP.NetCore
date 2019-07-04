@@ -27,14 +27,13 @@ var CheckoutComponent = /** @class */ (function () {
             }
         }, function (err) { return _this.errMessage = 'Failed to checkout'; });
     };
-    var _a;
     CheckoutComponent = __decorate([
         core_1.Component({
             selector: "checkout",
             templateUrl: "checkout.component.html",
             styleUrls: ['checkout.component.css']
         }),
-        __metadata("design:paramtypes", [data_service_1.DataService, typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [data_service_1.DataService, router_1.Router])
     ], CheckoutComponent);
     return CheckoutComponent;
 }());
