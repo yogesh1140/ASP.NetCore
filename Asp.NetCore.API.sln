@@ -59,6 +59,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.API", "API\Documentation\Library.API\Library.API.csproj", "{E1BAAD1D-8352-4060-89BE-972DFB764514}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvin.IDP.Infrastructure", "Security\Marvin.IDP.Infrastructure\Marvin.IDP.Infrastructure.csproj", "{436DC50F-651A-4742-B355-27A1D0CD71FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{E1BAAD1D-8352-4060-89BE-972DFB764514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1BAAD1D-8352-4060-89BE-972DFB764514}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1BAAD1D-8352-4060-89BE-972DFB764514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{436DC50F-651A-4742-B355-27A1D0CD71FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436DC50F-651A-4742-B355-27A1D0CD71FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436DC50F-651A-4742-B355-27A1D0CD71FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436DC50F-651A-4742-B355-27A1D0CD71FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -172,6 +178,7 @@ Global
 		{EBAB6208-F020-40A2-A4E7-84178358C1A3} = {1D3E29CB-6A30-499C-B97A-1D77CD636FDD}
 		{25170C98-332F-482D-BB1D-DF5B1AE86A0F} = {08BCA786-D527-49B7-801B-146B837C9D54}
 		{E1BAAD1D-8352-4060-89BE-972DFB764514} = {25170C98-332F-482D-BB1D-DF5B1AE86A0F}
+		{436DC50F-651A-4742-B355-27A1D0CD71FB} = {FD819715-3428-44DD-AFCD-630DEC39340F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A990AB1-82E2-4D41-9EBC-5F6ED0E054DA}

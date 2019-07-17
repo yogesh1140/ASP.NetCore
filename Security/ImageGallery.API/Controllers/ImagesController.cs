@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnprocessableEntityObjectResult = ImageGallery.API.Helpers.UnprocessableEntityObjectResult;
 
 namespace ImageGallery.API.Controllers
 {
